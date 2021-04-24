@@ -17,7 +17,7 @@ class PanierController extends AbstractController
     public function index(SessionInterface $session, ProduitRepository $ProduitRepository)
     {
         $panier = $session->get("panier", []);
-//zdd
+
         // On "fabrique" les données
         $dataPanier = [];
         $total = 0;
