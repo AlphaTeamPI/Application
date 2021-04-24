@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte{% endblock %}
+
+{% block body %}
+    <h1>Carte</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Username</th>
+                <td>{{ carte.username }}</td>
+            </tr>
+            <tr>
+                <th>Typeofcard</th>
+                <td>{{ carte.typeofcard }}</td>
+            </tr>
+            <tr>
+                <th>Dateincription</th>
+                <td>{{ carte.dateincription ? carte.dateincription|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Dateexpiration</th>
+                <td>{{ carte.dateexpiration ? carte.dateexpiration|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Imagecard</th>
+                <td class="pic" ><img style="height: 200px; width: 200px;" src="/imagez/{{ carte.imagecard }}" alt></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('carte_index') }}">back to list</a>
+
+    <a href="{{ path('carte_edit', {'idcard': carte.idcard}) }}">edit</a>
+
+    {{ include('carte/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'baseFront.html.twig' %}
+
+
+{% block body %}
+    <h1 style="color:var(--primary-color)" >Settings User</h1>
+
+    <table class="table">
+        <tbody>
+        <tr style="color:var(--primary-color)">
+            <th>Username</th>
+            <td>{{ app.user.username }}</td>
+        </tr>
+        <tr style="color:var(--primary-color)">
+            <th>Password</th>
+            <td>{{ app.user.password }}</td>
+        </tr>
+        <tr style="color:var(--primary-color)">
+            <th>Email</th>
+            <td>{{ app.user.email }}</td>
+        </tr>
+        <tr style="color:var(--primary-color)">
+            <th>Imageuser</th>
+            <td class="pic" ><img style="height: 200px; width: 200px;" src="/imagez/{{ app.user.imageuser }}" alt></td>
+        </tr>
+        <tr style="color:var(--primary-color)" >
+            <th>Role</th>
+            <td>{{ app.user.role }}</td>
+        </tr>
+        <tr style="color:var(--primary-color)">
+            <th >Datedenaissance</th>
+            <td>{{ app.user.datedenaissance ? app.user.datedenaissance|date('Y-m-d') : '' }}</td>
+        </tr>
+        <br style="color:var(--primary-color)">
+            <th style="color:var(--primary-color)">imageCard</th>
+            {% for carte in carte %}
+                {% if carte.username==app.user.username %}
+                    <td class="pic" style="color:var(--primary-color)">{{ carte.typeofcard }}<br><img style="height: 200px; width: 200px;" src="/imagez/{{ carte.imagecard }}" alt></td>
+                {% else %}
+                    <td style="color:var(--primary-color)">{{ 'pas de carte' }}</td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary theme-button" href="{{ path('participant_edit', {'iduser': app.user.iduser}) }}">edit</a>
+
+{% endblock %}
+
+

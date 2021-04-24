@@ -1,0 +1,12 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+    <h1 style="color:var(--primary-color)">Edit User </h1>
+    <div>
+        {{ include('participant/_form.html.twig', {'button_label': 'Update'}) }}
+    </div>
+    <a class="btn btn-primary theme-button" href="{{ path('participant') }}">Return Back</a>
+
+{% endblock %}
