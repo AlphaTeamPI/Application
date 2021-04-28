@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block k %}
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('suggestion')}}">Suggestions </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('Mysuggestion')}}">Mon espace<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('reclamation_new')}}">Reclamation</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+ {% block top %}
+     <div class="header-section text-center mx-auto">
+         <h3 style="color:#8b0000;">Envoyer une Reclamation </h3>
+
+     </div>
+ {% endblock %}
+{% block div %}
+    <section class="w3l-index3 py-5">
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h1 class="text-center"></h1>
+                        {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                        {{ form_row(form.Description)}}
+                        {{ form_row(form.Images) }}
+                        {{ include('reclamation/_form.html.twig', {'button_label': 'Envoyer'}) }}
+
+
+
+                    </div></div></div></div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}
+{% block produit %}
+{% endblock %}
