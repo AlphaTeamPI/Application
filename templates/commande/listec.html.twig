@@ -8,8 +8,8 @@
             <th>Numéro de commande</th>
             <th>Idclient</th>
             <th>Date</th>
-            <th>Montant</th>
             <th>Etat</th>
+            <th>Montant</th>
         </tr>
         </thead>
         <tbody>
@@ -17,9 +17,9 @@
             <tr>
                 <td>{{ commande.idcommande }}</td>
                 <td>{{ commande.numc }}</td>
+                <td>{{ commande.idclient }}</td>
                 <td>{{ commande.datecom ? commande.datecom|date('Y-m-d') : '' }}</td>
                 <td>{{ commande.etatcom }}</td>
-                <td>{{ commande.idclient }}</td>
                 <td>{{ commande.montantcom }}</td>
             </tr>
         {% else %}
