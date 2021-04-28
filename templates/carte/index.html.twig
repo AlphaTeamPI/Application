@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte index{% endblock %}
+
+{% block body %}
+    <h1>Table of User's Card</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>CardName</th>
+                <th>Registration date</th>
+                <th>expiration date</th>
+                <th>Image card</th>
+                <th>Username</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carte in cartes %}
+            <tr>
+                <td>{{ carte.typeofcard }}</td>
+                <td>{{ carte.dateincription ? carte.dateincription|date('Y-m-d') : '' }}</td>
+                <td>{{ carte.dateexpiration ? carte.dateexpiration|date('Y-m-d') : '' }}</td>
+                <td class="pic" ><img style="height: 200px; width: 200px;" src="/imagez/{{ carte.imagecard }}" alt></td>
+                <td>{{ carte.username }}</td>
+                <td>
+                    <a href="{{ path('carte_show', {'idcard': carte.idcard}) }}">show card</a>
+                    <a href="{{ path('carte_edit', {'idcard': carte.idcard}) }}">edit card</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('carte_new') }}">Create new carte</a>
+{% endblock %}
